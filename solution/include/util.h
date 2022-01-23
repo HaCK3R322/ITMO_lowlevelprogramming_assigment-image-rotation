@@ -1,5 +1,8 @@
 #pragma once
+#include "Image.h"
 #include <inttypes.h>
+#include <memory.h>
+#include <stdio.h>
 
 size_t getPos_byte(size_t x, size_t y, size_t width, size_t bitCount);
 char* string_concatenate(char* str1, char* str2);
