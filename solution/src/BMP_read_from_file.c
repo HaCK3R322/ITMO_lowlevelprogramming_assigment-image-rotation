@@ -1,4 +1,4 @@
-#include "include/BMP_read_from_file.h"
+#include "BMP_read_from_file.h"
 
 void print_header_24(struct BMPHEADER32 bmp32) {
 	printf("\nHEADER:\n");
