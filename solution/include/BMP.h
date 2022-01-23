@@ -1,7 +1,7 @@
 #pragma once
-#include <inttypes.h>
-#include "BMP_write_to_file.h"
 #include "BMP_read_from_file.h"
+#include "BMP_write_to_file.h"
+#include <inttypes.h>
 
 
 enum BMPVersions {

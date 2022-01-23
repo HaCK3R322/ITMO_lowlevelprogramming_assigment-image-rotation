@@ -1,9 +1,9 @@
 #pragma once
-#include <stdio.h>
+#include "BMP.h"
+#include "Image.h"
 #include <inttypes.h>
 #include <memory.h>
-#include "Image.h"
-#include "BMP.h"
+#include <stdio.h>
 #include "util.h"
 
 

@@ -1,4 +1,4 @@
 #pragma once
-#include "Image.h"
 #include "BMP.h"
+#include "Image.h"
 #include "rotation.h"
