@@ -29,7 +29,7 @@ enum actions get_action_by_name(const char* action_str) {
 	return NONE;
 }
 
-int this_must_be_main(int argc, char** argv) {
+int main(int argc, char** argv) {
 	if (argc < 3) {
 		print_help();
 		return 0;
