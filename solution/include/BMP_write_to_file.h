@@ -1,9 +1,10 @@
 #pragma once
-#include "BMP.h"
-#include "Image.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <inttypes.h>
 #include <memory.h>
-#include <stdio.h>
+#include "Image.h"
+#include "BMP.h"
 #include "util.h"
 
 void BMP_write_to_file(FILE* file, struct Image* image);

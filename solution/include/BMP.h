@@ -1,10 +1,7 @@
 #pragma once
-#include "BMP_read_from_file.h"
-#include "BMP_write_to_file.h"
 #include <inttypes.h>
 
-
-enum BMPVersions {
+enum BMPVersion {
     NONE = 0,
     CORE = 12,
     V3 = 40,
@@ -12,9 +9,8 @@ enum BMPVersions {
     V5 = 124
 };
 
-
-//all BMP formats
 #pragma pack(push, 1)
+//all BMP formats
 struct BMPFILEHEADER {
     uint8_t bfType[2];
     uint32_t bfSize;
@@ -22,7 +18,6 @@ struct BMPFILEHEADER {
     uint16_t bfReserved2;
     uint32_t bOffBits;
 };
-#pragma pop
 
 //for versions 3, 4, 5
 struct BMPINFOHEADER {
@@ -88,5 +83,4 @@ struct BMPHEADER32 {
     //version 5
     struct BMPV5HEADER v5header;
 };
-
-#pragma pop
+#pragma pack(pop)

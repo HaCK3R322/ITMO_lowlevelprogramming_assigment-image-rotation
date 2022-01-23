@@ -4,6 +4,7 @@
 #include <inttypes.h>
 #include <memory.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "util.h"
 
 
@@ -22,5 +23,5 @@ static char* BMP_reading_status_msg[] = {
 	[BMP_READING_ERROR] = "Unknown reaeding error."
 };
 
-enum BMPVersions BMP_read_file_header(FILE* file, struct BMPFILEHEADER* fileheader);
-enum reading_status BMP_read_from_file(FILE* file, struct Image* image);
+enum BMPVersion BMP_read_file_header(FILE* file, struct BMPFILEHEADER* fileheader);
+enum BMP_reading_status BMP_read_from_file(FILE* file, struct Image* image);

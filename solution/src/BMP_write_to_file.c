@@ -23,7 +23,7 @@ void BMP_write_to_file(FILE* file, struct Image* image) {
 	header.infoheader.Width = width;
 	header.infoheader.Height = height;
 	header.infoheader.Planes = 1;
-	header.infoheader.BitCount = image->bitCount;
+	header.infoheader.BitCount = (uint16_t)image->bitCount;
 	header.infoheader.Compression = 0;
 	header.infoheader.SizeImage = width * height;
 	header.infoheader.XPelsPerMeter = 0;
@@ -32,7 +32,7 @@ void BMP_write_to_file(FILE* file, struct Image* image) {
 	header.infoheader.ClrUsed = 0;
 	header.infoheader.ClrImportant = 0;
 
-	enum BMPVERSIONS version = V3;
+	enum BMPVersion version = V3;
 
 	fwrite(&header, sizeof(struct BMPFILEHEADER) + version, 1, file);
 
@@ -43,17 +43,26 @@ void BMP_write_to_file(FILE* file, struct Image* image) {
 	scan_width_bytes += trash_bytes_size;
 
 	uint8_t* scan = malloc(scan_width_bytes);
-	for (size_t y = 0; y < height; y++) {
-		for (size_t i = 0; i < scan_width_bytes; i++) {
-			scan[i] = 0;
+	if (scan != NULL) {
+		for (size_t y = 0; y < height; y++) {
+			for (size_t i = 0; i < scan_width_bytes; i++) {
+				scan[i] = 0;
+			}
+			
+			/*memcpy(scan,
+				&(((uint8_t*)image->pixels)[(height - 1 - y) * (width * pixel_size_bytes)]),
+				width * pixel_size_bytes
+			);*/
+			fwrite(&(((uint8_t*)image->pixels)[(height - 1 - y) * (width * pixel_size_bytes)]),
+				sizeof(uint8_t),
+				scan_width_bytes, file);
 		}
-		memcpy(scan,
-			&(((uint8_t*)image->pixels)[(height - 1 - y) * (width * pixel_size_bytes)]),
-			width * pixel_size_bytes
-		);
-		fwrite(scan, sizeof(uint8_t), scan_width_bytes, file);
+		free(scan);
 	}
-	free(scan);
+	else {
+		printf("Some writing error...\n");
+		return;
+	}
 
 	swap_1_and_3_bytes(image);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <inttypes.h>
+#include <stdlib.h>
 
 //Image contains width, height and double array of RGB-pixels
 //all readers read to RGB-24 bits format

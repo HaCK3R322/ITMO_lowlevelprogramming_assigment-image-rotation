@@ -1,4 +1,6 @@
 #include "filters.h"
+#include <inttypes.h>
+#include <math.h>
 
 void filter_sepia(struct Image* image) {
 	struct RGB {
@@ -6,7 +8,6 @@ void filter_sepia(struct Image* image) {
 	};
 
 	size_t pixel_size = image->bitCount / 8;
-	int percent = 0;
 
 	double discolorization = 0.7;
 	for (size_t i = 0; i < image->width * image->height * pixel_size; i += pixel_size) {
