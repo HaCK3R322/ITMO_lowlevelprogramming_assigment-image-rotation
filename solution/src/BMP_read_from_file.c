@@ -26,13 +26,12 @@ void extract_rgb_only(struct Image* image) {
 		return;
 	}
 	else {
-		#pragma pack(push, 1)
-		struct pixel {
+		struct pixel __attribute__((packed)) {
 			uint8_t R;
 			uint8_t G;
 			uint8_t B;
 		};
-		#pragma pop
+		
 		struct pixel* RGB_pixels = malloc(image->width * image->height * sizeof(struct pixel));
 
 		size_t current_pixel_size = image->bitCount / 8;
