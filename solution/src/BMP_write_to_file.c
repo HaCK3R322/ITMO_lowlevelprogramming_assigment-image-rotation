@@ -1,4 +1,4 @@
-#include "BMP_write_to_file.h"
+#include "include/BMP_write_to_file.h"
 
 void BMP_write_to_file(FILE* file, struct Image* image) {
 	swap_1_and_3_bytes(image); //struct Image is RGB and BMP must be BRG

@@ -1,7 +1,7 @@
-#include "util.h"
+#include "include/util.h"
 #include <stdio.h>
 #include <memory.h>
-#include "Image.h"
+#include "include/Image.h"
 
 size_t getPos_byte(size_t x, size_t y, size_t width, size_t bitCount) {
 	return ((y * width) + x) * bitCount / 8;
