@@ -1,4 +1,4 @@
-#include "include/rotation.h"
+#include "rotation.h"
 
 
 bool rotate_90degrees_left(struct Image* image) {
