@@ -1,4 +1,5 @@
-#include "main.h"
+#include "SIR.h"
+#include <stdio.h>
 
 int main(int argc, char** argv) {
 	if (argc != 3) {
