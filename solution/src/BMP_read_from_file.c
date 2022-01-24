@@ -124,8 +124,8 @@ enum BMP_reading_status BMP_read_from_file(FILE* file, struct Image* image) {
 		if (image->pixels != NULL) free(image->pixels);
 		image->pixels = pixels;
 
-		swap_1_and_3_bytes(image);	// BMP is BRG and struct Image must be RGB
 		extract_rgb_only(image);	// even if BMP is V4 or V5 i will save it in V3 format
+		swap_1_and_3_bytes(image);	// BMP is BRG and struct Image must be RGB
 
 		status = BMP_READING_SUCCESS;
 	}

@@ -12,24 +12,19 @@ size_t get_string_length(char* str) {
 	return ++i; //null-terminator
 }
 
-char* string_concatenate(char* str1, char* str2) {
+void string_concatenate(char* str1, char* str2, char* buffer) {
+	if(buffer == NULL)
+		return;
+	
 	size_t str1_length = get_string_length(str1);
 	size_t str2_length = get_string_length(str2);
 	
-	char* buffer = malloc(str1_length + str2_length - 1);
-
 	for (size_t i = 0; i < str1_length - 1; i++) {
 		buffer[i] = str1[i];
 	}
 	for (size_t i = 0; i < get_string_length(str2); i++) {
 		buffer[i + str1_length - 1] = str2[i];
 	}
-
-	/*if (buffer) {
-		memset(buffer, 0, 1024);
-		sprintf(buffer, "%s%s", str1, str2);
-	}*/
-	return buffer;
 }
 
 void swap_1_and_3_bytes(struct Image* image) {
