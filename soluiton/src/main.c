@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
 		output_file = fopen(argv[argc - 1], "wb+");
 		BMP_write_to_file(output_file, &image);
 
-		if(image.pixels != NULL) free(image.pixels);
+		if (image.pixels != NULL) free(image.pixels);
 	}
 	else {
 		return 0;
@@ -29,3 +29,4 @@ int main(int argc, char** argv) {
 	fclose(input_file);
 	return 0;
 }
+

@@ -13,16 +13,16 @@ size_t get_string_length(char* str) {
 }
 
 void string_concatenate(char* str1, char* str2, char* buffer) {
-	if(buffer == NULL)
-		return;
-	
 	size_t str1_length = get_string_length(str1);
 	size_t str2_length = get_string_length(str2);
-	
+
+	if (buffer == NULL)
+		return;
+
 	for (size_t i = 0; i < str1_length - 1; i++) {
 		buffer[i] = str1[i];
 	}
-	for (size_t i = 0; i < get_string_length(str2); i++) {
+	for (size_t i = 0; i < str2_length; i++) {
 		buffer[i + str1_length - 1] = str2[i];
 	}
 }
@@ -63,7 +63,7 @@ void extract_rgb_only(struct Image* image) {
 
 		free(image->pixels);
 		image->pixels = RGB_pixels;
-		image->bitCount = 24;
+		image->bitCount = sizeof(struct pixel) * 8;
 	}
 }
 

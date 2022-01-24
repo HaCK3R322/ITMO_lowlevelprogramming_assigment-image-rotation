@@ -93,7 +93,7 @@ enum BMP_reading_status BMP_read_from_file(FILE* file, struct Image* image) {
 ;
 	if (version > CORE) {
 		// allocate array of pixels without trash bytes
-		size_t number_of_pixels = bmp32.infoheader.Width * bmp32.infoheader.Height;
+		size_t number_of_pixels = (size_t)bmp32.infoheader.Width * (size_t)bmp32.infoheader.Height;
 		size_t pixel_size = image->bitCount / 8;
 		uint8_t* pixels = malloc(pixel_size * number_of_pixels);
 
@@ -117,6 +117,7 @@ enum BMP_reading_status BMP_read_from_file(FILE* file, struct Image* image) {
 			}
 		}
 		else {
+			printf("Cannot allocate memory for pixels reading\n");
 			if(pixels) free(pixels);
 			return BMP_READING_ERROR;
 		}

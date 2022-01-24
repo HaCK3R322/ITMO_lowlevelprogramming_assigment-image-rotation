@@ -13,6 +13,7 @@ enum BMP_reading_status {
 	BMP_READING_NULLPTR_ERROR,
 	BMP_READING_HEADER_READING_ERROR,
 	BMP_READING_UNKNOWN_VERSION_ERROR,
+	BMP_READING_NOT_ENOUGH_MEMORY_ERROR,
 	BMP_READING_ERROR
 };
 static char* BMP_reading_status_msg[] = {
@@ -20,6 +21,7 @@ static char* BMP_reading_status_msg[] = {
 	[BMP_READING_NULLPTR_ERROR] = "One of args is null ptr.",
 	[BMP_READING_HEADER_READING_ERROR] = "Header do not corresspond verion.",
 	[BMP_READING_UNKNOWN_VERSION_ERROR] = "Unknown version. SIR works only with [CORE, V3, V4, V5].",
+	[BMP_READING_NOT_ENOUGH_MEMORY_ERROR] = "Not not enough memory for file reading.",
 	[BMP_READING_ERROR] = "Unknown reaeding error."
 };
 
