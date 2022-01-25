@@ -7,7 +7,7 @@ int main(int argc, char** argv) {
 	input_file = fopen(argv[argc - 2], "rb");
 
 	if (input_file) {
-		struct Image image;
+		struct Image image = {0};
 
 		enum BMP_reading_status reading_status = BMP_read_from_file(input_file, &image);
 		if (!reading_status) {
