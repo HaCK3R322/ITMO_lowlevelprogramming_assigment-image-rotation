@@ -61,7 +61,7 @@ void extract_rgb_only(struct Image* image) {
 			}
 		}
 
-		free(image->pixels);
+		if(image->pixels) free(image->pixels);
 		image->pixels = RGB_pixels;
 		image->bitCount = sizeof(struct pixel) * 8;
 	}

@@ -120,7 +120,7 @@ enum BMP_reading_status BMP_read_from_file(FILE* file, struct Image* image) {
 			return BMP_READING_ERROR;
 		}
 
-		if (image->pixels != NULL) free(image->pixels);
+		if (image->pixels) free(image->pixels);
 		image->pixels = pixels;
 
 		extract_rgb_only(image);	// even if BMP is V4 or V5 i will save it in V3 format

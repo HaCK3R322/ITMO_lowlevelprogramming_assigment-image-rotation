@@ -48,7 +48,7 @@ bool rotate_90degrees_left(struct Image* image) {
 	image->width = height;
 	image->height = width;
 
-	free(image->pixels);
+	if(image->pixels) free(image->pixels);
 	image->pixels = new_data;
 
 	return true;
