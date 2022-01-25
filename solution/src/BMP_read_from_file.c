@@ -44,7 +44,6 @@ enum BMP_reading_status BMP_read_from_file(FILE* file, struct Image* image) {
 	struct BMPFILEHEADER fileheader = { 0 };
 	enum BMPVersion version = BMP_read_file_header(file, &fileheader);
 	if (version != V3) {
-		printf("Sorry, but SIR works only with BMP V3 by now.\nYour version:%d\n", version);
 		status = BMP_READING_UNKNOWN_VERSION_ERROR;
 		return status;
 	}
@@ -117,7 +116,6 @@ enum BMP_reading_status BMP_read_from_file(FILE* file, struct Image* image) {
 			}
 		}
 		else {
-			printf("Cannot allocate memory for pixels reading\n");
 			if(pixels) free(pixels);
 			return BMP_READING_ERROR;
 		}
